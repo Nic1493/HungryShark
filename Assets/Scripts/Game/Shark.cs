@@ -23,7 +23,7 @@ public class Shark : Actor
             mousePos.z = 10f;
 
             Vector3 newPos = mainCam.ScreenToWorldPoint(mousePos);
-            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref moveDirection, 0.2f);
+            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref moveDirection, 0.1f);
         }
     }
 
