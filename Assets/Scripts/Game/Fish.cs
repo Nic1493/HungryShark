@@ -32,8 +32,13 @@ public class Fish : Actor
     // handle collision with Shark
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        hitbox.enabled = false;
-        LoseLifeAction?.Invoke();
+        if (other.TryGetComponent(out Shark shark))
+        {
+            hitbox.enabled = false;
+            LoseLifeAction?.Invoke();
+
+            shark.IncreaseScoreAction?.Invoke(100);
+        }
     }
 
     // handle death events
@@ -44,6 +49,8 @@ public class Fish : Actor
         moveSpeed = 1f;
         spriteRenderer.flipY = true;
         moveDirection = Vector3.up;
+
+
     }
 
     void OnBecameInvisible()

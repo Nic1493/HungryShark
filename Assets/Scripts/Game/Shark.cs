@@ -4,6 +4,11 @@ public class Shark : Actor
 {
     Camera mainCam;
 
+    [SerializeField] IntObject score;
+
+    public delegate void IncreaseScoreDelegate(int amount);
+    public IncreaseScoreDelegate IncreaseScoreAction;
+
     public event System.Action GameOverAction;
 
     protected override void Awake()
@@ -11,6 +16,8 @@ public class Shark : Actor
         base.Awake();
         mainCam = Camera.main;
 
+        score.value = 0;
+        IncreaseScoreAction += IncreaseScore;
         GameOverAction += OnGameOver;
     }
 
@@ -30,6 +37,11 @@ public class Shark : Actor
     protected override void Die()
     {
         GameOverAction?.Invoke();
+    }
+
+    void IncreaseScore(int amount)
+    {
+        score.value += amount;
     }
 
     void OnGameOver()
