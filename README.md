@@ -2,7 +2,6 @@
 
 Small game made in Unity for [LuvBugLearning](https://luvbuglearning.com), made in 4 hours.
 
-
 ## Approach
 Knowing that this was a game designed for young children, I took a simplistic approach to the game's design. The aesthetic is designed around a light aquatic theme, and the touch controls aims to give the user smooth experience.
 
@@ -31,7 +30,7 @@ Because of time constraints, the game lacks a lot of refinement. Given more time
 - Gameplay | Have the fish move in a non-linear path
     - currently, the fish move in the direction of its `moveDirection` vector, which is always set to `Vector3.left`. I can continuously rotate the vector and make the fish move in a sinusoidal path, giving more flavour to the gameplay
 - Code | Refactor parts of the code to improve flexibility and scalability
-    - to be honest, I treated this more like a hack-a-thon than anything. Given enough time, I would improve the codebase by de-coupling certain variables and improving its modularity
+    - to be honest, I treated this more like a hack-a-thon than anything. Given enough time, I would de-couple some parts of the code to improve its modularity
 - Graphics | Add animations to the Shark and fish actors to improve gameplay feel and responsiveness
     - the Shark should open and close its jaws upon colliding with the fish
     - the Shark should have some sort of visual indicator upon colliding with a pufferfish
